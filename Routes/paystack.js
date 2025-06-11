@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const crypto = require('crypto');
-const { handlePaystackWebhook } = require('../controllers/paystackController');
+const { handlePaystackWebhook } = require('../Controllers/PaystackController');
 
 router.post('/webhook', express.raw({ type: 'application/json' }), handlePaystackWebhook);
 
