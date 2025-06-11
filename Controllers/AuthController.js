@@ -71,7 +71,7 @@ exports.login = async (req, res) => {
           {
               userId: user._id,
               email: user.email,
-              role: user.role // <- include role here
+              role: user.role 
           },
           SECRET,
           { expiresIn: '1h' }
@@ -91,7 +91,7 @@ exports.forgotPassword = async (req, res) => {
 
     const token = crypto.randomBytes(32).toString('hex');
     user.resetToken = token;
-    user.resetTokenExpiration = Date.now() + 3600000; // 1 hour
+    user.resetTokenExpiration = Date.now() + 3600000; 
     await user.save();
 
     const transporter = nodemailer.createTransport({

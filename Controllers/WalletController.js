@@ -76,7 +76,7 @@ exports.fundWallet = async (req, res) => {
     // Call Paystack to initialize transaction
     const paystackResponse = await axios.post('https://api.paystack.co/transaction/initialize', {
       email: user.email,
-      amount: amount * 100  // Paystack uses kobo (smallest unit)
+      amount: amount * 100  
     }, {
       headers: {
         Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
@@ -86,7 +86,6 @@ exports.fundWallet = async (req, res) => {
 
     const { authorization_url, reference } = paystackResponse.data.data;
 
-    // Optionally: Save reference to a local DB to track pending payments
 
     res.status(200).json({
       message: 'Payment initialized. Open the URL to complete payment',
