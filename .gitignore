@@ -1,2 +1,15 @@
-.env
+# Ignore Visual Studio folders
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node
 node_modules/
+.env
