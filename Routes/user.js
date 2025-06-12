@@ -6,7 +6,7 @@ const authorizeRole = require('../Middleware/AuthorizeRole');
 
 router.get('/users', auth, authorizeRole('Admin'), getAllUsers);
 router.get('/users/:id', auth, authorizeRole('Admin'), getUserById);
-router.delete('/users/:i0d', auth, authorizeRole('Admin'), deleteUser);
+router.delete('/users/:id', auth, authorizeRole('Admin'), deleteUser);
 
 module.exports = router;
 
