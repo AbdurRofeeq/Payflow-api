@@ -15,10 +15,14 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
-app.use('/auth', authRoutes);
-app.use('/wallet', walletRoutes);
-app.use('/transaction', transactionRoutes);
-app.use('/paystack', paystackRoutes);
-app.use('/user', userRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/wallet', walletRoutes);
+app.use('/api/transaction', transactionRoutes);
+app.use('/api/paystack', paystackRoutes);
+app.use('/api/user', userRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "PayFlow Is Live!!!" })
+})
